@@ -1,0 +1,39 @@
+2.	Install NVM, NPM, YARN, PM2, NODEJS
+3.	Check service database restored in mongo dB done or not. If not follow this document MONGO
+4.	Go to your home location
+cd /home/ubuntu/
+5.	Clone the repo
+git clone -b <your desired branch name> https://gitlab.com/AOPortal/cvs-backend.git
+cd cvs-backend
+git checkout <branch name>
+git pull
+6.	Add /update the config file
+Update redirect Uri with REACT URL in DIGILOCKER section:
+
+"digilocker": {
+      "baseURI": "https://api.digitallocker.gov.in/public/oauth2/",
+      "getTokenURI": "1/token",
+      "getFilesURI": "2/files/issued",
+      "downloadFileURI": "1/file/",
+      "redirectUri": "https://www.applyonce.online/add-document"
+    },
+Update blockchain config URL with blockchain CVS:
+"blockChainConfig": {
+      "baseUrl": "https://internal-alb-bc.applyonce.online/cvs"
+
+
+"snsConfig": {
+      "region": "us-east-1",
+      "account": "475702037158",
+      "topic": "prod-ao-document-template-topic"
+    },
+    "snsDelConfig": {
+      "region": "us-east-1",
+      "account": "475702037158",
+      "topic": "prod-ao-document-delete-topic"
+    },
+    "sqsDocStatusConfig": {
+      "region": "us-east-1",
+      "account": "475702037158",
+      "queue": "prod-ao-document-status-update-queue"
+    },
